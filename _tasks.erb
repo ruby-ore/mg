@@ -1,0 +1,14 @@
+<%- if bundler? -%>
+require 'mg'
+MG.new("<%= @name %>.gemspec")
+<%- else -%>
+begin
+  gem 'mg', '<%= @development_dependencies['mg'] %>'
+  require 'mg'
+
+  MG.new("<%= @name %>.gemspec")
+rescue LoadError => e
+  warn e.message
+  warn "Run `gem install mg` to install 'mg'."
+end
+<%- end -%>
