@@ -6,3 +6,6 @@ disable:
 
 development_dependencies:
   mg: ~> 0.0
+
+variables:
+  gem_tasks: mg
